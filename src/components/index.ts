@@ -4,4 +4,7 @@ export { default as ProductShowcase } from './ProductShowcase';
 export { default as FadeInView } from './FadeInView';
 export { default as SlideInSection } from './SlideInSection'; 
 export { default as StickyScroll } from './StickyScroll'; 
-export { default as Hero } from './Hero'; 
+export { default as Hero } from './Hero';
+export { default as ProductCard } from './ProductCard';
+export { default as NavigationBar } from './NavigationBar';
+export { default as ScrollFadeIn } from './ScrollFadeIn'; 

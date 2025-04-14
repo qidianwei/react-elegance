@@ -1,0 +1,10 @@
+.scrollFadeIn {
+  will-change: opacity, transform;
+  backface-visibility: hidden; /* Improve performance */
+  transform-style: preserve-3d; /* Better rendering */
+}
+
+/* Ensure proper stacking context */
+.scrollFadeIn * {
+  transform-style: preserve-3d;
+} 

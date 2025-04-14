@@ -8,13 +8,27 @@ import {
   FadeInView,
   SlideInSection,
   StickyScroll,
-  Hero
+  Hero,
+  ProductCard,
+  NavigationBar,
+  ScrollFadeIn
 } from './components';
 import ParticleWave from './components/ParticleWave';
 
 function App() {
+  // Navigation links
+  const navLinks = [
+    { text: '首页', url: '#' },
+    { text: '产品特点', url: '#content' },
+    { text: '卡片展示', url: '#products' },
+    { text: '视差效果', url: '#parallax' },
+    { text: '联系我们', url: '#contact' }
+  ];
+
   return (
     <div className={`${styles.appContainer} App`}>
+      <NavigationBar links={navLinks} isSticky={true} />
+      
       <div className={styles.particleWrapper}>
         <ParticleWave />
         <Hero 
@@ -28,10 +42,78 @@ function App() {
       </div>
       <div id="content" className={styles.contentWrapper}>
         <section className="section">
-          <FadeInView>
+          <ScrollFadeIn direction="up" duration={1} delay={0.2}>
             <h2>渐入效果</h2>
             <p>随着页面滚动，元素平滑地淡入显示，带来舒适的视觉体验</p>
-          </FadeInView>
+          </ScrollFadeIn>
+          
+          <div className="demo-grid">
+            <ScrollFadeIn direction="up" delay={0.4} triggerOnce>
+              <div className="demo-box">
+                <h3>向上滑入</h3>
+                <p>元素从下方滑入</p>
+              </div>
+            </ScrollFadeIn>
+            
+            <ScrollFadeIn direction="down" delay={0.6} triggerOnce>
+              <div className="demo-box">
+                <h3>向下滑入</h3>
+                <p>元素从上方滑入</p>
+              </div>
+            </ScrollFadeIn>
+            
+            <ScrollFadeIn direction="left" delay={0.8} triggerOnce>
+              <div className="demo-box">
+                <h3>从左滑入</h3>
+                <p>元素从右向左滑入</p>
+              </div>
+            </ScrollFadeIn>
+            
+            <ScrollFadeIn direction="right" delay={1.0} triggerOnce>
+              <div className="demo-box">
+                <h3>从右滑入</h3>
+                <p>元素从左向右滑入</p>
+              </div>
+            </ScrollFadeIn>
+          </div>
+        </section>
+
+        <section id="products" className="section">
+          <ScrollFadeIn direction="up" triggerOnce>
+            <h2>产品卡片展示</h2>
+          </ScrollFadeIn>
+          
+          <div className="product-card-grid">
+            <ScrollFadeIn direction="up" delay={0.2} triggerOnce>
+              <ProductCard 
+                imageSrc="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                title="无线耳机"
+                description="高品质音频体验，舒适的佩戴感，长久的电池续航，让你随时随地享受音乐。"
+                ctaText="了解更多"
+                ctaLink="#"
+              />
+            </ScrollFadeIn>
+            
+            <ScrollFadeIn direction="up" delay={0.4} triggerOnce>
+              <ProductCard 
+                imageSrc="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                title="智能手表"
+                description="跟踪你的健康数据，接收通知，管理日程安排，全天候的助手。"
+                ctaText="立即购买"
+                ctaLink="#"
+              />
+            </ScrollFadeIn>
+            
+            <ScrollFadeIn direction="up" delay={0.6} triggerOnce>
+              <ProductCard 
+                imageSrc="https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                title="智能音箱"
+                description="语音控制，智能家居集成，高清音质，改变你的居家生活方式。"
+                ctaText="查看详情"
+                ctaLink="#"
+              />
+            </ScrollFadeIn>
+          </div>
         </section>
 
         <StickyScroll 
@@ -51,30 +133,41 @@ function App() {
           </div>
         </StickyScroll>
 
-        <section className="section dark parallax-section">
-          <h2>视差滚动效果</h2>
-          <p>不同元素以不同速度移动，创造出深度感</p>
+        <section id="parallax" className="section dark parallax-section">
+          <ScrollFadeIn direction="none" triggerOnce>
+            <h2>视差滚动效果</h2>
+            <p>不同元素以不同速度移动，创造出深度感</p>
+          </ScrollFadeIn>
+          
           <div className="parallax-row">
             <ParallaxScroll speed={-0.3}>
-              <div className="parallax-item">
-                <h3>背景层</h3>
-                <p>滚动速度最慢</p>
-                <div className="parallax-visual"></div>
-              </div>
+              <ScrollFadeIn direction="left" delay={0.2} triggerOnce>
+                <div className="parallax-item">
+                  <h3>背景层</h3>
+                  <p>滚动速度最慢</p>
+                  <div className="parallax-visual"></div>
+                </div>
+              </ScrollFadeIn>
             </ParallaxScroll>
+            
             <ParallaxScroll speed={-0.8}>
-              <div className="parallax-item">
-                <h3>中间层</h3>
-                <p>滚动速度适中</p>
-                <div className="parallax-visual"></div>
-              </div>
+              <ScrollFadeIn direction="left" delay={0.4} triggerOnce>
+                <div className="parallax-item">
+                  <h3>中间层</h3>
+                  <p>滚动速度适中</p>
+                  <div className="parallax-visual"></div>
+                </div>
+              </ScrollFadeIn>
             </ParallaxScroll>
+            
             <ParallaxScroll speed={-1.5}>
-              <div className="parallax-item">
-                <h3>前景层</h3>
-                <p>滚动速度最快</p>
-                <div className="parallax-visual"></div>
-              </div>
+              <ScrollFadeIn direction="left" delay={0.6} triggerOnce>
+                <div className="parallax-item">
+                  <h3>前景层</h3>
+                  <p>滚动速度最快</p>
+                  <div className="parallax-visual"></div>
+                </div>
+              </ScrollFadeIn>
             </ParallaxScroll>
           </div>
         </section>
@@ -102,13 +195,13 @@ function App() {
           </ProductShowcase>
         </section>
 
-        <footer>
-          <SlideInSection direction="bottom">
+        <footer id="contact">
+          <ScrollFadeIn direction="up" triggerOnce>
             <p>使用React和纯CSS/JS实现的苹果风格动效</p>
             <MagneticButton>
               <span>联系我们</span>
             </MagneticButton>
-          </SlideInSection>
+          </ScrollFadeIn>
         </footer>
       </div>
     </div>
