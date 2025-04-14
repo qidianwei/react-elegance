@@ -7,7 +7,8 @@ import {
   ProductShowcase,
   FadeInView,
   SlideInSection,
-  StickyScroll
+  StickyScroll,
+  Hero
 } from './components';
 import ParticleWave from './components/ParticleWave';
 
@@ -16,17 +17,16 @@ function App() {
     <div className={`${styles.appContainer} App`}>
       <div className={styles.particleWrapper}>
         <ParticleWave />
+        <Hero 
+          imageSrc=""
+          title="动效演示平台"
+          subtitle="探索React中令人惊叹的动画和交互效果"
+          ctaText="开始探索"
+          ctaLink="#content"
+          isParallax={true}
+        />
       </div>
-      <div className={styles.contentWrapper}>
-        <header className="App-header">
-          <h1>动效演示</h1>
-          <p className="subtitle">使用React实现的纯CSS/JS动效</p>
-          
-          <MagneticButton className="header-button">
-            <span>探索更多</span>
-          </MagneticButton>
-        </header>
-
+      <div id="content" className={styles.contentWrapper}>
         <section className="section">
           <FadeInView>
             <h2>渐入效果</h2>
