@@ -1,0 +1,26 @@
+/* Styles moved from App.tsx inline styles */
+.appContainer {
+  position: relative;
+  background: #000;
+  /* Keeping text-align and font-family from original App.css */
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333; /* Default color from original App.css, override below */
+}
+
+.particleWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* ParticleWave itself has z-index: -1, this container is above it */
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1; /* Ensure content is above the particle wrapper */
+  color: #fff; /* Override default text color for content */
+}
+
+/* Add other styles from App.css if needed, or keep them in App.css */ 

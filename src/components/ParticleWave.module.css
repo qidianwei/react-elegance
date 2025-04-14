@@ -1,0 +1,11 @@
+.particleContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content */
+  pointer-events: none;
+  background: transparent;
+  overflow: hidden;
+} 

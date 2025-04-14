@@ -1,5 +1,290 @@
+/* 基础样式 */
 .App {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+  background-color: #f5f5f7;
+}
+
+/* 页眉样式 */
+.App-header {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem 0 2rem;
+  opacity: 0.8;
+}
+
+.header-button {
+  margin-top: 2rem;
+  background: #0071e3;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s;
+}
+
+.header-button:hover {
+  background: #0077ed;
+  transform: scale(1.05);
+}
+
+/* 粘性滚动与渐变样式 */
+.sticky-section-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-showcase {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.gradient-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gradient-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* 部分通用样式 */
+.section {
+  padding: 8rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section.dark {
+  background-color: #000;
+  color: white;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.section p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 产品部分样式 */
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.product-section > div {
+  flex: 1;
+  min-width: 300px;
+}
+
+.product-image-placeholder {
+  background: linear-gradient(135deg, #06c, #6af);
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* 产品展示盒子样式 */
+.product-box {
+  padding: 3rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.product-model {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #61dafb, #06c);
+  border-radius: 12px;
+  margin: 2rem auto 0;
+}
+
+/* 视差内容样式 */
+.parallax-content {
+  padding: 4rem 2rem;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.parallax-indicator {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(0, 113, 227, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* 视差滚动部分样式 */
+.parallax-section {
+  min-height: 150vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-item {
+  flex: 1;
+  min-width: 300px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-visual {
+  width: 100%;
+  height: 200px;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.3), rgba(0, 113, 227, 0.1));
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-visual::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.1) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 255, 255, 0.1) 75%, 
+    transparent 75%, 
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: movePattern 2s linear infinite;
+}
+
+@keyframes movePattern {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+.parallax-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.parallax-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.parallax-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 页脚样式 */
+footer {
+  background-color: #000;
+  color: white;
+  padding: 4rem 2rem;
+}
+
+footer p {
+  opacity: 0.7;
+  margin-bottom: 2rem;
 }
 
 .App-logo {
@@ -11,17 +296,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
