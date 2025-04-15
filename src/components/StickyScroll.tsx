@@ -21,32 +21,22 @@ const StickyScroll: React.FC<StickyScrollProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const currentContainer = containerRef.current; // Store ref locally
+    const currentContainer = containerRef.current;
+    if (!currentContainer) return;
 
     const handleScroll = () => {
-      if (!currentContainer) return; // Use local variable
-      
-      const { top, height: containerHeight } = currentContainer.getBoundingClientRect(); // Renamed height
-      const windowHeight = window.innerHeight;
-      
-      const totalScrollDistance = currentContainer.offsetHeight - windowHeight;
-      // Adjust scroll calculation to handle edge cases and container offset
-      const containerTopRelativeToDocument = currentContainer.offsetTop;
-      const scrolled = window.scrollY - (containerTopRelativeToDocument - windowHeight * (1 - stickyPosition / 100));
-      
-      // Calculate progress within the scrollable distance
-      const progress = Math.min(Math.max(scrolled / totalScrollDistance, 0), 1);
-      
+      const rect = currentContainer.getBoundingClientRect();
+      const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
       setScrollProgress(progress);
     };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true }); // Use passive listener
+
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [stickyPosition]); // Add stickyPosition to dependency array
+  }, []);
   
   const interpolateColor = (color1: string, color2: string, factor: number): string => {
     // Clamp factor

@@ -1,11 +1,9 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './App.css';
 import styles from './App.module.css';
 import { 
-  ParallaxScroll, 
   MagneticButton, 
   ProductShowcase,
-  FadeInView,
   StickyScroll,
   Hero,
   ProductCard,

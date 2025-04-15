@@ -28,7 +28,6 @@ const ParallaxLayer: React.FC<ParallaxLayerProps> = ({
   const calculateTranslate = () => {
     if (!layerRef.current) return;
 
-    const scrollContainer = root?.current || window;
     const scrollPosition = root?.current 
       ? root.current.scrollTop || root.current.scrollLeft || 0
       : axis === 'vertical'
