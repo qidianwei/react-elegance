@@ -7,6 +7,100 @@
   background-color: #f5f5f7;
 }
 
+/* 视差滚动演示样式 */
+.parallax-demo-container {
+  width: 100%;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.parallax-section-title {
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.parallax-vertical-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 60vh;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.parallax-horizontal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 80vh;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.parallax-layer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-width: 250px;
+}
+
+.parallax-layer.background {
+  background: linear-gradient(135deg, rgba(0, 30, 60, 0.8), rgba(0, 113, 227, 0.5));
+}
+
+.parallax-layer.middle {
+  background: linear-gradient(135deg, rgba(0, 60, 120, 0.8), rgba(0, 130, 255, 0.5));
+}
+
+.parallax-layer.foreground {
+  background: linear-gradient(135deg, rgba(0, 90, 180, 0.8), rgba(0, 160, 255, 0.5));
+}
+
+.parallax-layer.horizontal-layer {
+  width: 100%;
+  margin: 1.5rem 0;
+  background: linear-gradient(135deg, rgba(0, 30, 60, 0.8), rgba(0, 113, 227, 0.5));
+}
+
+.parallax-layer.horizontal-layer:nth-child(2) {
+  background: linear-gradient(135deg, rgba(0, 60, 120, 0.8), rgba(0, 130, 255, 0.5));
+}
+
+.parallax-layer.horizontal-layer:nth-child(3) {
+  background: linear-gradient(135deg, rgba(0, 90, 180, 0.8), rgba(0, 160, 255, 0.5));
+}
+
+.parallax-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.parallax-content h4 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.parallax-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 /* ScrollFadeIn 示例网格 */
 .demo-grid {
   display: grid;
@@ -166,9 +260,10 @@
 }
 
 .section p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
   margin: 0 auto;
 }
 

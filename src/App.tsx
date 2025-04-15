@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 import styles from './App.module.css';
 import { 
@@ -6,16 +6,19 @@ import {
   MagneticButton, 
   ProductShowcase,
   FadeInView,
-  SlideInSection,
   StickyScroll,
   Hero,
   ProductCard,
   NavigationBar,
-  ScrollFadeIn
+  ScrollFadeIn,
+  ParallaxLayer
 } from './components';
 import ParticleWave from './components/ParticleWave';
 
 function App() {
+  // Ref for parallax container
+  const parallaxContainerRef = useRef<HTMLDivElement>(null);
+  
   // Navigation links
   const navLinks = [
     { text: '首页', url: '#' },
@@ -133,55 +136,72 @@ function App() {
           </div>
         </StickyScroll>
 
-        <section id="parallax" className="section dark parallax-section">
+        <section id="parallax" className="section dark parallax-section" ref={parallaxContainerRef}>
           <ScrollFadeIn direction="none" triggerOnce>
             <h2>视差滚动效果</h2>
-            <p>不同元素以不同速度移动，创造出深度感</p>
+            <p>基于滚动位置，元素以不同速度移动，创造出深度感</p>
           </ScrollFadeIn>
           
-          <div className="parallax-row">
-            <ParallaxScroll speed={-0.3}>
-              <ScrollFadeIn direction="left" delay={0.2} triggerOnce>
-                <div className="parallax-item">
-                  <h3>背景层</h3>
-                  <p>滚动速度最慢</p>
-                  <div className="parallax-visual"></div>
+          <div className="parallax-demo-container">
+            <h3 className="parallax-section-title">垂直视差效果</h3>
+            <div className="parallax-vertical-container">
+              <ParallaxLayer speed={-0.2} className="parallax-layer background">
+                <div className="parallax-content">
+                  <h4>背景层</h4>
+                  <p>负速度值，滚动时向上移动较慢</p>
                 </div>
-              </ScrollFadeIn>
-            </ParallaxScroll>
-            
-            <ParallaxScroll speed={-0.8}>
-              <ScrollFadeIn direction="left" delay={0.4} triggerOnce>
-                <div className="parallax-item">
-                  <h3>中间层</h3>
-                  <p>滚动速度适中</p>
-                  <div className="parallax-visual"></div>
+              </ParallaxLayer>
+              
+              <ParallaxLayer speed={0} className="parallax-layer middle">
+                <div className="parallax-content">
+                  <h4>中间层</h4>
+                  <p>速度值为0，随页面正常滚动</p>
                 </div>
-              </ScrollFadeIn>
-            </ParallaxScroll>
-            
-            <ParallaxScroll speed={-1.5}>
-              <ScrollFadeIn direction="left" delay={0.6} triggerOnce>
-                <div className="parallax-item">
-                  <h3>前景层</h3>
-                  <p>滚动速度最快</p>
-                  <div className="parallax-visual"></div>
+              </ParallaxLayer>
+              
+              <ParallaxLayer speed={0.3} className="parallax-layer foreground">
+                <div className="parallax-content">
+                  <h4>前景层</h4>
+                  <p>正速度值，滚动时向下移动较快</p>
                 </div>
-              </ScrollFadeIn>
-            </ParallaxScroll>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="product-section">
-            <SlideInSection direction="right">
-              <h2>从右侧滑入</h2>
-              <p>元素从屏幕右侧平滑滑入视图</p>
-            </SlideInSection>
+              </ParallaxLayer>
+            </div>
             
-            <SlideInSection direction="left" delay={300}>
-              <div className="product-image-placeholder"></div>
-            </SlideInSection>
+            <h3 className="parallax-section-title">水平视差效果</h3>
+            <div className="parallax-horizontal-container">
+              <ParallaxLayer 
+                speed={-0.2} 
+                axis="horizontal" 
+                className="parallax-layer horizontal-layer"
+              >
+                <div className="parallax-content">
+                  <h4>向左移动</h4>
+                  <p>负速度值，滚动时向左移动</p>
+                </div>
+              </ParallaxLayer>
+              
+              <ParallaxLayer 
+                speed={0} 
+                axis="horizontal" 
+                className="parallax-layer horizontal-layer"
+              >
+                <div className="parallax-content">
+                  <h4>固定位置</h4>
+                  <p>速度值为0，保持固定位置</p>
+                </div>
+              </ParallaxLayer>
+              
+              <ParallaxLayer 
+                speed={0.2} 
+                axis="horizontal" 
+                className="parallax-layer horizontal-layer"
+              >
+                <div className="parallax-content">
+                  <h4>向右移动</h4>
+                  <p>正速度值，滚动时向右移动</p>
+                </div>
+              </ParallaxLayer>
+            </div>
           </div>
         </section>
 

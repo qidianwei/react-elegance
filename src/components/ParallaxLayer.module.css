@@ -1,0 +1,14 @@
+.parallaxLayer {
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+/* Ensure smooth animations */
+@media (prefers-reduced-motion: no-preference) {
+  .parallaxLayer {
+    transition: transform 0.01s linear;
+  }
+} 
