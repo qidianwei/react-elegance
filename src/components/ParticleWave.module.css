@@ -4,8 +4,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Ensure it's behind other content */
-  pointer-events: none;
+  z-index: 0; /* Make it visible over the background */
+  pointer-events: auto; /* Enable interaction */
   background: transparent;
   overflow: hidden;
 } 

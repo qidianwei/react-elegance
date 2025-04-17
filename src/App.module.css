@@ -12,13 +12,14 @@
   position: relative; /* Changed from absolute to relative */
   width: 100%;
   height: 100vh; /* Full viewport height for the hero section */
-  z-index: 0; /* ParticleWave itself has z-index: -1, this container is above it */
+  z-index: 1; /* Make sure this is above background */
   overflow: hidden;
+  background-color: #000; /* Ensure a dark background */
 }
 
 .contentWrapper {
   position: relative;
-  z-index: 1; /* Ensure content is above the particle wrapper */
+  z-index: 2; /* Ensure content is above the particle wrapper */
   color: #fff; /* Override default text color for content */
   padding-top: 2rem; /* Add some spacing between hero and content */
 }
